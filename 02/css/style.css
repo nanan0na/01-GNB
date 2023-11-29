@@ -1,0 +1,92 @@
+@charset 'utf-8';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+a,
+a:hover {
+  color: #fabbbb;
+  text-decoration: none;
+}
+.inner {
+  width: 1200px;
+  margin: 0 auto;
+}
+#header {
+  background: #000;
+  color: #fff;
+}
+#header nav {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 메뉴 배경으로 떨어지는 부분 */
+#header::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  background: #00f;
+  transition: 0.3s;
+}
+#header.active::before {
+  height: 300px;
+}
+.gnb {
+  display: flex;
+}
+.gnb > li {
+  position: relative; /* submenu 위치 지정을 위한 기준점 */
+}
+/* jQuery에서 on클래스 부여했을 때 디자인 */
+.gnb > li.on {
+  background: #f39;
+}
+.gnb > li > a {
+  display: block;
+  padding: 10px 40px;
+  border: 1px solid #777;
+}
+
+.submenu {
+  position: absolute;
+  top: 44px;
+  left: 0px;
+  width: 100%;
+  padding-top: 40px;
+  background: #ff5;
+
+  /* jQuery에서 슬라이드/업다운 효과를 위한 설정 */
+  display: none;
+}
+.submenu li a {
+  display: block;
+  border: 1px solid #ff0;
+  padding: 10px;
+  text-align: center;
+  background: darkcyan;
+  color: #fff;
+}
+.submenu li a:hover {
+  background: seagreen;
+}
+
+#footer {
+  padding: 50px;
+  text-align: center;
+  color: #fff;
+  background: #333;
+}
